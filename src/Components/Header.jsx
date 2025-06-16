@@ -1,15 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
-import { colors } from "../Global/colors";
-import { marginsHeader } from "../Global/constants";
+import { colors } from "../global/colors";
+import { marginsHeader } from "../global/constants";
 import ListaItem from "./Lista/ListaItem";
 import { useState } from "react";
 import Categories from "./Categories";
 
-const Header = () => {
+const Header = ({ title, setIsCategoria }) => {
   return (
     <View style={styles.header}>
-      <Categories />
-      <Text>Nombre de la tienda</Text>
+      <Categories setIsCategoria={setIsCategoria} />
+      <Text>{title}</Text>
     </View>
   );
 };

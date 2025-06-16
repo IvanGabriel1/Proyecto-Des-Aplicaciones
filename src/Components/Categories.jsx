@@ -8,14 +8,20 @@ import {
   FlatList,
 } from "react-native";
 import categories from "../../Data/categories.json";
-import { useState } from "react";
-import { marginsHeader } from "../Global/constants";
+import { useState, useContext } from "react";
+import { CategoryContext } from "../context/CategoryContext";
 
-const Categories = () => {
+const Categories = ({}) => {
   const [isOpenCategorias, setIsOpenCategorias] = useState(false);
+  const { setSelectedCategory } = useContext(CategoryContext);
 
   const handleOpenCategorias = () => {
     setIsOpenCategorias(!isOpenCategorias);
+  };
+
+  const handleChosenCategory = (cat) => {
+    setSelectedCategory(cat);
+    setIsOpenCategorias(false);
   };
 
   return (
@@ -42,7 +48,10 @@ const Categories = () => {
               data={categories}
               keyExtractor={(item, index) => index.toString()}
               renderItem={({ item }) => (
-                <TouchableOpacity style={styles.categoryButton}>
+                <TouchableOpacity
+                  style={styles.categoryButton}
+                  onPress={() => handleChosenCategory(item)}
+                >
                   <Text style={styles.categoryText}>{item}</Text>
                 </TouchableOpacity>
               )}
