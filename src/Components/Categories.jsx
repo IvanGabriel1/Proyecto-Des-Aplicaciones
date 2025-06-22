@@ -28,9 +28,9 @@ const Categories = ({}) => {
     <View style={styles.categoriesContainer}>
       <TouchableOpacity onPress={handleOpenCategorias}>
         {isOpenCategorias ? (
-          <Text>❌ Cerrar</Text>
+          <Text style={styles.cerrarModal}>x</Text>
         ) : (
-          <Text>🟢 Ver Categorias</Text>
+          <Text style={styles.abrirModal}>≡</Text>
         )}
       </TouchableOpacity>
 
@@ -87,5 +87,13 @@ const styles = StyleSheet.create({
   categoryText: {
     fontWeight: "bold",
     textTransform: "capitalize",
+  },
+  abrirModal: {
+    fontSize: 46,
+    alignSelf: "center",
+  },
+  cerrarModal: {
+    fontSize: 36,
+    alignSelf: "center",
   },
 });

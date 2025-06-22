@@ -1,12 +1,24 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  useWindowDimensions,
+} from "react-native";
 import { loadFonts } from "./src/global/fonts";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { CategoryProvider } from "./src/context/CategoryContext";
+import { marginsHeader } from "./src/global/constants";
+import { colors } from "./src/global/colors";
 import MainContent from "./src/Components/MainContent";
+import Header from "./src/Components/Header";
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
+  const { width, height } = useWindowDimensions();
+
+  const isLandscape = width > height;
 
   useEffect(() => {
     const loadAllFonts = async () => {
@@ -22,23 +34,35 @@ export default function App() {
   }
 
   return (
-    <CategoryProvider>
+    <>
       <SafeAreaView style={styles.container}>
-        {/* <Text style={styles.pruebaFonts}>Probando fonts</Text>
-        <Image source={require(`./assets/images/th.jpg`)} style={styles.img} />
-        <Search placeholder="Buscar productos..." /> */}
-        <MainContent />
-        <StatusBar style="auto" />
+        <View
+          style={[
+            styles.statusBarBg,
+            {
+              paddingTop: isLandscape
+                ? marginsHeader.paddingLongTop
+                : marginsHeader.paddingTop,
+            },
+          ]}
+        />
+        <StatusBar style="light" />
+        <CategoryProvider>
+          <Header title="Equipment for home" />
+          <MainContent />
+        </CategoryProvider>
       </SafeAreaView>
-    </CategoryProvider>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
+  statusBarBg: {
+    backgroundColor: colors.primary,
+    paddingTop: marginsHeader.paddingTop,
+  },
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "flex-start",
-    backgroundColor: "red",
+    backgroundColor: colors.background,
   },
 });

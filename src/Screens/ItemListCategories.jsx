@@ -1,10 +1,14 @@
-import { StyleSheet, Text, View, FlatList } from "react-native";
-import React, { useContext } from "react";
+import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
+import { useContext } from "react";
 import products from "../../Data/products.json";
-import { CategoryContext } from "../context/CategoryContext"; // ✅ esta línea es clave
+import FlatListComponent from "../../src/Components/FlatListComponent";
+import { CategoryContext } from "../context/CategoryContext";
 
 const ItemListCategories = () => {
   const { selectedCategory } = useContext(CategoryContext);
+  const { width, height } = useWindowDimensions();
+
+  const isLandscape = width > height;
 
   const filteredProducts =
     selectedCategory && selectedCategory !== "Ver Todo"
@@ -12,20 +16,19 @@ const ItemListCategories = () => {
       : products;
 
   return (
-    <View>
-      <Text style={styles.title}>
-        Productos {selectedCategory && `- ${selectedCategory}`}
+    <View style={styles.container}>
+      <Text
+        style={[
+          styles.title,
+          {
+            fontSize: isLandscape ? 14 : 18,
+            marginVertical: isLandscape ? 2 : 10,
+          },
+        ]}
+      >
+        Productos {selectedCategory && `- ${selectedCategory}`} :
       </Text>
-      <FlatList
-        data={filteredProducts}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <View style={styles.card}>
-            <Text>{item.title}</Text>
-            <Text>${item.price}</Text>
-          </View>
-        )}
-      />
+      <FlatListComponent data={filteredProducts} />
     </View>
   );
 };
@@ -33,15 +36,15 @@ const ItemListCategories = () => {
 export default ItemListCategories;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+    paddingTop: 0,
+    backgroundColor: "#f5f5f5",
+  },
   title: {
     fontSize: 18,
-    fontWeight: "bold",
     marginVertical: 10,
-  },
-  card: {
-    padding: 10,
-    marginBottom: 10,
-    backgroundColor: "#eee",
-    borderRadius: 8,
+    fontFamily: "Michroma-Regular",
   },
 });
