@@ -1,15 +1,22 @@
-import { StyleSheet, Text, View, FlatList } from "react-native";
+import { StyleSheet, Text, View, FlatList, Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const FlatListComponent = ({ data }) => {
+  const navigation = useNavigation();
+
   return (
     <FlatList
       data={data}
       keyExtractor={(item) => item.id.toString()}
       renderItem={({ item }) => (
-        <View style={styles.card}>
-          <Text>{item.title}</Text>
-          <Text>${item.price}</Text>
-        </View>
+        <Pressable
+          onPress={() => navigation.navigate("ItemDetail", { product: item })}
+        >
+          <View style={styles.card}>
+            <Text>{item.title}</Text>
+            <Text>${item.price}</Text>
+          </View>
+        </Pressable>
       )}
     />
   );

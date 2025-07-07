@@ -1,18 +1,17 @@
 import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
-import { useContext } from "react";
 import products from "../../Data/products.json";
 import FlatListComponent from "../../src/Components/FlatListComponent";
-import { CategoryContext } from "../context/CategoryContext";
 
-const ItemListCategories = () => {
-  const { selectedCategory } = useContext(CategoryContext);
+const ItemListCategories = ({ navigation, route }) => {
   const { width, height } = useWindowDimensions();
+
+  const { category } = route.params;
 
   const isLandscape = width > height;
 
   const filteredProducts =
-    selectedCategory && selectedCategory !== "Ver Todo"
-      ? products.filter((item) => item.category === selectedCategory)
+    category && category !== "Ver Todo"
+      ? products.filter((item) => item.category === category)
       : products;
 
   return (
@@ -26,7 +25,8 @@ const ItemListCategories = () => {
           },
         ]}
       >
-        Productos {selectedCategory && `- ${selectedCategory}`} :
+        {/* Productos {selectedCategory && `- ${selectedCategory}`} : */}
+        Productos {category && `- ${category}`} :
       </Text>
       <FlatListComponent data={filteredProducts} />
     </View>

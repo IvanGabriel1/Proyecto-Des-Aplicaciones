@@ -2,37 +2,41 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity,
+  Pressable,
   Modal,
-  Button,
   FlatList,
 } from "react-native";
 import categories from "../../Data/categories.json";
-import { useState, useContext } from "react";
-import { CategoryContext } from "../context/CategoryContext";
+import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
-const Categories = ({}) => {
+const CategoriesMenu = () => {
   const [isOpenCategorias, setIsOpenCategorias] = useState(false);
-  const { setSelectedCategory } = useContext(CategoryContext);
+  const navigation = useNavigation();
 
   const handleOpenCategorias = () => {
     setIsOpenCategorias(!isOpenCategorias);
   };
 
-  const handleChosenCategory = (cat) => {
-    setSelectedCategory(cat);
+  const handleChosenCategory = (catTitle) => {
+    navigation.navigate("ItemListCategories", { category: catTitle });
+    setIsOpenCategorias(false);
+  };
+
+  const handleChosenHome = () => {
+    navigation.navigate("Home");
     setIsOpenCategorias(false);
   };
 
   return (
     <View style={styles.categoriesContainer}>
-      <TouchableOpacity onPress={handleOpenCategorias}>
+      <Pressable onPress={handleOpenCategorias}>
         {isOpenCategorias ? (
           <Text style={styles.cerrarModal}>x</Text>
         ) : (
           <Text style={styles.abrirModal}>≡</Text>
         )}
-      </TouchableOpacity>
+      </Pressable>
 
       <Modal
         visible={isOpenCategorias}
@@ -41,19 +45,22 @@ const Categories = ({}) => {
       >
         <View style={styles.contenedorModal}>
           <View style={styles.modal}>
-            <TouchableOpacity onPress={handleOpenCategorias}>
+            <Pressable onPress={handleOpenCategorias}>
               <Text style={{ fontSize: 16 }}>❌ Cerrar</Text>
-            </TouchableOpacity>
+            </Pressable>
+            <Pressable onPress={handleChosenHome}>
+              <Text style={styles.categoryButtonHome}>Home</Text>
+            </Pressable>
             <FlatList
               data={categories}
-              keyExtractor={(item, index) => index.toString()}
+              keyExtractor={(item) => item.id.toString()}
               renderItem={({ item }) => (
-                <TouchableOpacity
+                <Pressable
                   style={styles.categoryButton}
-                  onPress={() => handleChosenCategory(item)}
+                  onPress={() => handleChosenCategory(item.title)}
                 >
-                  <Text style={styles.categoryText}>{item}</Text>
-                </TouchableOpacity>
+                  <Text style={styles.categoryText}>{item.title}</Text>
+                </Pressable>
               )}
             />
           </View>
@@ -63,7 +70,7 @@ const Categories = ({}) => {
   );
 };
 
-export default Categories;
+export default CategoriesMenu;
 
 const styles = StyleSheet.create({
   contenedorModal: {
@@ -83,6 +90,13 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     borderRadius: 8,
     alignItems: "center",
+  },
+  categoryButtonHome: {
+    backgroundColor: "green",
+    padding: 10,
+    marginVertical: 5,
+    borderRadius: 8,
+    textAlign: "center",
   },
   categoryText: {
     fontWeight: "bold",

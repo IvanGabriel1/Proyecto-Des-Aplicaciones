@@ -11,8 +11,10 @@ import { useEffect, useState } from "react";
 import { CategoryProvider } from "./src/context/CategoryContext";
 import { marginsHeader } from "./src/global/constants";
 import { colors } from "./src/global/colors";
-import MainContent from "./src/Components/MainContent";
 import Header from "./src/Components/Header";
+import { NavigationContainer } from "@react-navigation/native";
+//import Navigator from "./src/navigation/Navigator";
+import TabNavigator from "./src/navigation/TabNavigator";
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -30,7 +32,7 @@ export default function App() {
   }, []);
 
   if (!fontsLoaded) {
-    return <Text>Cargando fuentes...</Text>;
+    return <Text style={styles.TextLoadFonts}>Cargando fuentes...</Text>;
   }
 
   return (
@@ -47,16 +49,23 @@ export default function App() {
           ]}
         />
         <StatusBar style="light" />
-        <CategoryProvider>
-          <Header title="Equipment for home" />
-          <MainContent />
-        </CategoryProvider>
+        <NavigationContainer>
+          {/* Aca estaba navigator y no tabnavigator */}
+          <TabNavigator />
+        </NavigationContainer>
       </SafeAreaView>
     </>
   );
 }
 
 const styles = StyleSheet.create({
+  TextLoadFonts: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    fontSize: 32,
+  },
   statusBarBg: {
     backgroundColor: colors.primary,
     paddingTop: marginsHeader.paddingTop,

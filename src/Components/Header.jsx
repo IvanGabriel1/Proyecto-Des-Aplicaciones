@@ -1,26 +1,41 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import { colors } from "../global/colors";
 import { marginsHeader } from "../global/constants";
-import Categories from "./Categories";
+import CategoriesMenu from "./CategoriesMenu";
+import { useNavigation } from "@react-navigation/native";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 const Header = ({ title, setIsCategoria }) => {
+  const navigation = useNavigation();
+  const canGoBack = navigation.canGoBack();
+
   return (
-    <View style={styles.header}>
-      <View style={styles.left}>
-        <Categories setIsCategoria={setIsCategoria} />
-      </View>
+    <View>
+      <View style={styles.header}>
+        <View style={styles.left}>
+          <CategoriesMenu setIsCategoria={setIsCategoria} />
+        </View>
 
-      <View style={styles.center}>
-        <Text style={styles.title}>{title}</Text>
-      </View>
+        <View style={styles.center}>
+          <Text style={styles.title}>{title}</Text>
+        </View>
 
-      <View style={styles.right}>
-        <Image
-          source={require("../../assets/Logo-EFH.png")}
-          style={styles.logo}
-          resizeMode="contain"
-        />
+        <View style={styles.right}>
+          <Image
+            source={require("../../assets/Logo-EFH.png")}
+            style={styles.logo}
+            resizeMode="contain"
+          />
+        </View>
       </View>
+      {canGoBack && (
+        <Pressable style={styles.goBack} onPress={() => navigation.goBack()}>
+          <View style={styles.goBackContent}>
+            <Icon name="angle-left" size={32} />
+            <Text>Volver</Text>
+          </View>
+        </Pressable>
+      )}
     </View>
   );
 };
@@ -58,5 +73,16 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     alignSelf: "center",
+  },
+  goBackContent: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: "16",
+    paddingTop: 8,
+  },
+  goBack: {
+    left: 24,
+    width: 50,
+    height: 50,
   },
 });

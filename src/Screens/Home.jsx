@@ -1,13 +1,23 @@
-import React, { useContext } from "react";
-import { View, Text, FlatList, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import products from "../../Data/products.json";
-import { CategoryContext } from "../context/CategoryContext";
 import FlatListComponent from "../../src/Components/FlatListComponent";
+import Search from "../Components/Search";
+import { useState } from "react";
 
 const Home = () => {
+  const [searchText, setSearchText] = useState("");
+
+  const filteredProducts =
+    searchText.length >= 1
+      ? products.filter((product) =>
+          product.title.toLowerCase().includes(searchText.toLowerCase())
+        )
+      : products;
+
   return (
     <View style={styles.container}>
-      <FlatListComponent data={products} />
+      <Search searchText={searchText} setSearchText={setSearchText} />
+      <FlatListComponent data={filteredProducts} />
     </View>
   );
 };
