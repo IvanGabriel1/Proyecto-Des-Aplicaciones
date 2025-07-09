@@ -8,13 +8,12 @@ import {
 } from "react-native";
 import { loadFonts } from "./src/global/fonts";
 import { useEffect, useState } from "react";
-import { CategoryProvider } from "./src/context/CategoryContext";
 import { marginsHeader } from "./src/global/constants";
 import { colors } from "./src/global/colors";
-import Header from "./src/Components/Header";
 import { NavigationContainer } from "@react-navigation/native";
-//import Navigator from "./src/navigation/Navigator";
 import TabNavigator from "./src/navigation/TabNavigator";
+import { Provider } from "react-redux";
+import store from "./src/store";
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -37,23 +36,25 @@ export default function App() {
 
   return (
     <>
-      <SafeAreaView style={styles.container}>
-        <View
-          style={[
-            styles.statusBarBg,
-            {
-              paddingTop: isLandscape
-                ? marginsHeader.paddingLongTop
-                : marginsHeader.paddingTop,
-            },
-          ]}
-        />
-        <StatusBar style="light" />
-        <NavigationContainer>
-          {/* Aca estaba navigator y no tabnavigator */}
-          <TabNavigator />
-        </NavigationContainer>
-      </SafeAreaView>
+      <Provider store={store}>
+        <SafeAreaView style={styles.container}>
+          <View
+            style={[
+              styles.statusBarBg,
+              {
+                paddingTop: isLandscape
+                  ? marginsHeader.paddingLongTop
+                  : marginsHeader.paddingTop,
+              },
+            ]}
+          />
+          <StatusBar style="light" />
+          <NavigationContainer>
+            {/* Aca estaba navigator y no tabnavigator */}
+            <TabNavigator />
+          </NavigationContainer>
+        </SafeAreaView>
+      </Provider>
     </>
   );
 }

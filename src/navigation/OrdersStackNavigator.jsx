@@ -1,7 +1,7 @@
 import { StyleSheet, View, useWindowDimensions } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import OrdersScreen from "../Screens/orders/OrdersScreen";
-import Header from "../Components/Header";
+import Header from "../components/Header";
 
 const OrdersStackNavigator = () => {
   const Stack = createNativeStackNavigator();

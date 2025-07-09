@@ -1,11 +1,13 @@
 import { View, StyleSheet } from "react-native";
-import products from "../../Data/products.json";
-import FlatListComponent from "../../src/Components/FlatListComponent";
-import Search from "../Components/Search";
+//import products from "../data/products.json";
+import FlatListComponent from "../components/FlatListComponent";
+import Search from "../components/Search";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Home = () => {
   const [searchText, setSearchText] = useState("");
+  const products = useSelector((state) => state.shopReducer.products);
 
   const filteredProducts =
     searchText.length >= 1

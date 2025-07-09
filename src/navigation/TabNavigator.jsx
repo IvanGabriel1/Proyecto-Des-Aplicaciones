@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import CartStackNavigator from "./CartStackNavigator";
 import OrdersStackNavigator from "./OrdersStackNavigator";

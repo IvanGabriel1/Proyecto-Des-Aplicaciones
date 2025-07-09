@@ -6,24 +6,30 @@ import {
   Modal,
   FlatList,
 } from "react-native";
-import categories from "../../Data/categories.json";
+import categories from "../data/categories.json";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setCategorySelected } from "../features/shop/shopSlice";
 import { useNavigation } from "@react-navigation/native";
 
 const CategoriesMenu = () => {
   const [isOpenCategorias, setIsOpenCategorias] = useState(false);
   const navigation = useNavigation();
 
+  const dispatch = useDispatch();
+
   const handleOpenCategorias = () => {
     setIsOpenCategorias(!isOpenCategorias);
   };
 
   const handleChosenCategory = (catTitle) => {
-    navigation.navigate("ItemListCategories", { category: catTitle });
+    dispatch(setCategorySelected(catTitle));
+    navigation.navigate("ItemListCategories");
     setIsOpenCategorias(false);
   };
 
   const handleChosenHome = () => {
+    dispatch(setCategorySelected(""));
     navigation.navigate("Home");
     setIsOpenCategorias(false);
   };

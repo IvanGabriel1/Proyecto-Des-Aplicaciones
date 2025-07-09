@@ -1,18 +1,23 @@
 import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
-import products from "../../Data/products.json";
-import FlatListComponent from "../../src/Components/FlatListComponent";
+import products from "../data/products.json";
+import FlatListComponent from "../components/FlatListComponent";
+import { useSelector } from "react-redux";
 
-const ItemListCategories = ({ navigation, route }) => {
+const ItemListCategories = () => {
   const { width, height } = useWindowDimensions();
 
-  const { category } = route.params;
+  const categoriaSelected = useSelector(
+    (state) => state.shopReducer.categorySelected
+  );
+
+  const todosLosProductos = useSelector((state) => state.shopReducer.products);
 
   const isLandscape = width > height;
 
   const filteredProducts =
-    category && category !== "Ver Todo"
-      ? products.filter((item) => item.category === category)
-      : products;
+    categoriaSelected && categoriaSelected !== "Ver Todo"
+      ? todosLosProductos.filter((item) => item.category === categoriaSelected)
+      : todosLosProductos;
 
   return (
     <View style={styles.container}>
@@ -26,7 +31,7 @@ const ItemListCategories = ({ navigation, route }) => {
         ]}
       >
         {/* Productos {selectedCategory && `- ${selectedCategory}`} : */}
-        Productos {category && `- ${category}`} :
+        Productos {categoriaSelected && `- ${categoriaSelected}`} :
       </Text>
       <FlatListComponent data={filteredProducts} />
     </View>
