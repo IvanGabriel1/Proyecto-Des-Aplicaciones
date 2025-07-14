@@ -8,14 +8,16 @@ import {
 } from "react-native";
 import categories from "../data/categories.json";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setCategorySelected } from "../features/shop/shopSlice";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
+import {
+  setCategorySelected,
+  filterProducts,
+} from "../features/shop/shopSlice";
 
 const CategoriesMenu = () => {
   const [isOpenCategorias, setIsOpenCategorias] = useState(false);
   const navigation = useNavigation();
-
   const dispatch = useDispatch();
 
   const handleOpenCategorias = () => {
@@ -24,6 +26,7 @@ const CategoriesMenu = () => {
 
   const handleChosenCategory = (catTitle) => {
     dispatch(setCategorySelected(catTitle));
+    dispatch(filterProducts());
     navigation.navigate("ItemListCategories");
     setIsOpenCategorias(false);
   };

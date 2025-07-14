@@ -5,19 +5,22 @@ import { useSelector } from "react-redux";
 
 const ItemListCategories = () => {
   const { width, height } = useWindowDimensions();
+  const isLandscape = width > height;
 
   const categoriaSelected = useSelector(
     (state) => state.shopReducer.categorySelected
   );
 
-  const todosLosProductos = useSelector((state) => state.shopReducer.products);
+  // const todosLosProductos = useSelector((state) => state.shopReducer.products);
 
-  const isLandscape = width > height;
+  // const filteredProducts =
+  //   categoriaSelected && categoriaSelected !== "Ver Todo"
+  //     ? todosLosProductos.filter((item) => item.category === categoriaSelected)
+  //     : todosLosProductos;
 
-  const filteredProducts =
-    categoriaSelected && categoriaSelected !== "Ver Todo"
-      ? todosLosProductos.filter((item) => item.category === categoriaSelected)
-      : todosLosProductos;
+  const filteredProducts = useSelector(
+    (state) => state.shopReducer.productsFilterByCategory
+  );
 
   return (
     <View style={styles.container}>

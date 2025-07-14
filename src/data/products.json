@@ -2,287 +2,456 @@
   {
     "id": 1,
     "title": "Celular Alpha X",
-    "description": "Smartphone con pantalla OLED de 6.1″ y 128 GB.",
+    "shortDescription": "Smartphone con pantalla OLED de 6.1″ y 128 GB.",
+    "longDescription": "Smartphone con pantalla OLED de 6.1″ y 128 GB. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 699,
     "stock": 42,
-    "category": "Celulares"
+    "brand": "Motorola",
+    "category": "Celulares",
+    "discount": 0,
+    "tags": [],
+    "mainImage": "https://via.placeholder.com/300x300?text=Celular+Alpha+X"
   },
   {
     "id": 2,
     "title": "Celular Beta Lite",
-    "description": "Teléfono económico con batería de 5000 mAh y cámara dual.",
+    "shortDescription": "Teléfono económico con batería de 5000 mAh y cámara dual.",
+    "longDescription": "Teléfono económico con batería de 5000 mAh y cámara dual. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 219,
     "stock": 120,
-    "category": "Celulares"
+    "brand": "Xiaomi",
+    "category": "Celulares",
+    "discount": 0,
+    "tags": ["ofert"],
+    "mainImage": "https://via.placeholder.com/300x300?text=Celular+Beta+Lite"
   },
   {
     "id": 3,
     "title": "Celular Pro Max 5G",
-    "description": "Gama alta con chip octa‑core y carga rápida de 65 W.",
+    "shortDescription": "Gama alta con chip octa‑core y carga rápida de 65 W.",
+    "longDescription": "Gama alta con chip octa‑core y carga rápida de 65 W. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 949,
     "stock": 18,
-    "category": "Celulares"
+    "brand": "Realme",
+    "category": "Celulares",
+    "discount": 0,
+    "tags": [],
+    "mainImage": "https://via.placeholder.com/300x300?text=Celular+Pro+Max+5G"
   },
   {
     "id": 4,
     "title": "Celular Eco Mini",
-    "description": "Modelo compacto de 5.4″ ideal para uso diario.",
+    "shortDescription": "Modelo compacto de 5.4″ ideal para uso diario.",
+    "longDescription": "Modelo compacto de 5.4″ ideal para uso diario. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 299,
     "stock": 75,
-    "category": "Celulares"
+    "brand": "Xiaomi",
+    "category": "Celulares",
+    "discount": 0,
+    "tags": ["ofert"],
+    "mainImage": "https://via.placeholder.com/300x300?text=Celular+Eco+Mini"
   },
   {
     "id": 5,
     "title": "Celular Zoom 108 MP",
-    "description": "Enfoque óptico 5× y sensor principal de 108 MP.",
+    "shortDescription": "Enfoque óptico 5× y sensor principal de 108 MP.",
+    "longDescription": "Enfoque óptico 5× y sensor principal de 108 MP. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 529,
     "stock": 33,
-    "category": "Celulares"
+    "brand": "Samsung",
+    "category": "Celulares",
+    "discount": 0,
+    "tags": [],
+    "mainImage": "https://via.placeholder.com/300x300?text=Celular+Zoom+108 MP"
   },
-
   {
     "id": 6,
     "title": "Laptop Nova 14",
-    "description": "Ultrabook 14″, Intel i5, 8 GB RAM, 512 GB SSD.",
+    "shortDescription": "Ultrabook 14″, Intel i5, 8 GB RAM, 512 GB SSD.",
+    "longDescription": "Ultrabook 14″, Intel i5, 8 GB RAM, 512 GB SSD. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 879,
     "stock": 27,
-    "category": "Laptops"
+    "brand": "Acer",
+    "category": "Laptops",
+    "discount": 0,
+    "tags": [],
+    "mainImage": "https://via.placeholder.com/300x300?text=Laptop+Nova 14"
   },
   {
     "id": 7,
     "title": "Laptop Gamer Titan",
-    "description": "15.6″ 144 Hz, Ryzen 7, RTX 4060 y 1 TB SSD.",
+    "shortDescription": "15.6″ 144 Hz, Ryzen 7, RTX 4060 y 1 TB SSD.",
+    "longDescription": "15.6″ 144 Hz, Ryzen 7, RTX 4060 y 1 TB SSD. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 1599,
     "stock": 11,
-    "category": "Laptops"
+    "brand": "Lenovo",
+    "category": "Laptops",
+    "discount": 0,
+    "tags": [],
+    "mainImage": "https://via.placeholder.com/300x300?text=Laptop+Gamer+Titan"
   },
   {
     "id": 8,
     "title": "Laptop Student Air",
-    "description": "Liviana (1.1 kg) con batería para 18 h y USB‑C.",
+    "shortDescription": "Liviana (1.1 kg) con batería para 18 h y USB‑C.",
+    "longDescription": "Liviana (1.1 kg) con batería para 18 h y USB‑C. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 649,
     "stock": 54,
-    "category": "Laptops"
+    "brand": "Asus",
+    "category": "Laptops",
+    "discount": 0,
+    "tags": ["popular"],
+    "mainImage": "https://via.placeholder.com/300x300?text=Laptop+Student+Air"
   },
   {
     "id": 9,
     "title": "Laptop Creator 17",
-    "description": "Pantalla 17″ 4K HDR y 32 GB RAM para edición de video.",
+    "shortDescription": "Pantalla 17″ 4K HDR y 32 GB RAM para edición de video.",
+    "longDescription": "Pantalla 17″ 4K HDR y 32 GB RAM para edición de video. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 2199,
     "stock": 7,
-    "category": "Laptops"
+    "brand": "HP",
+    "category": "Laptops",
+    "discount": 0,
+    "tags": [],
+    "mainImage": "https://via.placeholder.com/300x300?text=Laptop+Creator 17"
   },
   {
     "id": 10,
     "title": "Laptop Budget 11″",
-    "description": "Convertible 2‑en‑1 con stylus y almacenamiento eMMC 128 GB.",
+    "shortDescription": "Convertible 2‑en‑1 con stylus y almacenamiento eMMC 128 GB.",
+    "longDescription": "Convertible 2‑en‑1 con stylus y almacenamiento eMMC 128 GB. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 349,
     "stock": 66,
-    "category": "Laptops"
+    "brand": "Asus",
+    "category": "Laptops",
+    "discount": 0,
+    "tags": ["ofert"],
+    "mainImage": "https://via.placeholder.com/300x300?text=Laptop+Budget 11″"
   },
-
   {
     "id": 11,
     "title": "Consola Next Gen X",
-    "description": "Soporta 4K 120 fps, SSD 1 TB y retrocompatibilidad.",
+    "shortDescription": "Soporta 4K 120 fps, SSD 1 TB y retrocompatibilidad.",
+    "longDescription": "Soporta 4K 120 fps, SSD 1 TB y retrocompatibilidad. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 599,
     "stock": 23,
-    "category": "Consolas"
+    "brand": "Microsoft",
+    "category": "Consolas",
+    "discount": 0,
+    "tags": [],
+    "mainImage": "https://via.placeholder.com/300x300?text=Consola+Next Gen X"
   },
   {
     "id": 12,
     "title": "Consola Portátil Pro",
-    "description": "Híbrida con pantalla OLED 7″ y mandos desmontables.",
+    "shortDescription": "Híbrida con pantalla OLED 7″ y mandos desmontables.",
+    "longDescription": "Híbrida con pantalla OLED 7″ y mandos desmontables. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 399,
     "stock": 40,
-    "category": "Consolas"
+    "brand": "Microsoft",
+    "category": "Consolas",
+    "discount": 0,
+    "tags": ["ofert"],
+    "mainImage": "https://via.placeholder.com/300x300?text=Consola+Portátil Pro"
   },
   {
     "id": 13,
     "title": "Consola Retro Mini",
-    "description": "Colección de 50 juegos clásicos en formato mini.",
+    "shortDescription": "Colección de 50 juegos clásicos en formato mini.",
+    "longDescription": "Colección de 50 juegos clásicos en formato mini. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 89,
     "stock": 150,
-    "category": "Consolas"
+    "brand": "Sony",
+    "category": "Consolas",
+    "discount": 0,
+    "tags": ["ofert"],
+    "mainImage": "https://via.placeholder.com/300x300?text=Consola+Retro+Mini"
   },
   {
     "id": 14,
     "title": "Consola VR Hub",
-    "description": "Equipo dedicado a realidad virtual con mandos hápticos.",
+    "shortDescription": "Equipo dedicado a realidad virtual con mandos hápticos.",
+    "longDescription": "Equipo dedicado a realidad virtual con mandos hápticos. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 749,
     "stock": 14,
-    "category": "Consolas"
+    "brand": "Nintendo",
+    "category": "Consolas",
+    "discount": 0,
+    "tags": [],
+    "mainImage": "https://via.placeholder.com/300x300?text=Consola+VR Hub"
   },
   {
     "id": 15,
     "title": "Consola Family Fun",
-    "description": "Incluye sensores de movimiento y 30 actividades deportivas.",
+    "shortDescription": "Incluye sensores de movimiento y 30 actividades deportivas.",
+    "longDescription": "Incluye sensores de movimiento y 30 actividades deportivas. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 259,
     "stock": 58,
-    "category": "Consolas"
+    "brand": "Microsoft",
+    "category": "Consolas",
+    "discount": 0,
+    "tags": ["ofert"],
+    "mainImage": "https://via.placeholder.com/300x300?text=Consola+Family+Fun"
   },
-
   {
     "id": 16,
     "title": "Heladera NoFrost 500 L",
-    "description": "Doble puerta, panel táctil y dispensador de agua.",
+    "shortDescription": "Doble puerta, panel táctil y dispensador de agua.",
+    "longDescription": "Doble puerta, panel táctil y dispensador de agua. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 1199,
     "stock": 9,
-    "category": "Heladeras"
+    "brand": "Whirlpool",
+    "category": "Heladeras",
+    "discount": 0,
+    "tags": [],
+    "mainImage": "https://via.placeholder.com/300x300?text=Heladera+NoFrost 500 L"
   },
   {
     "id": 17,
     "title": "Heladera Bar Compacta",
-    "description": "Capacidad 90 L, ideal para monoambientes u oficina.",
+    "shortDescription": "Capacidad 90 L, ideal para monoambientes u oficina.",
+    "longDescription": "Capacidad 90 L, ideal para monoambientes u oficina. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 219,
     "stock": 34,
-    "category": "Heladeras"
+    "brand": "Electrolux",
+    "category": "Heladeras",
+    "discount": 0,
+    "tags": ["ofert"],
+    "mainImage": "https://via.placeholder.com/300x300?text=Heladera+Bar+Compacta"
   },
   {
     "id": 18,
     "title": "Heladera French Door",
-    "description": "805 L con fabricador de hielo automático y Wi‑Fi.",
+    "shortDescription": "805 L con fabricador de hielo automático y Wi‑Fi.",
+    "longDescription": "805 L con fabricador de hielo automático y Wi‑Fi. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 2399,
     "stock": 4,
-    "category": "Heladeras"
+    "brand": "Whirlpool",
+    "category": "Heladeras",
+    "discount": 0,
+    "tags": [],
+    "mainImage": "https://via.placeholder.com/300x300?text=Heladera+French Door"
   },
   {
     "id": 19,
     "title": "Heladera Solar Cool",
-    "description": "Funciona con paneles solares externos, clase A+++.",
+    "shortDescription": "Funciona con paneles solares externos, clase A+++.",
+    "longDescription": "Funciona con paneles solares externos, clase A+++. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 1599,
     "stock": 12,
-    "category": "Heladeras"
+    "brand": "Samsung",
+    "category": "Heladeras",
+    "discount": 0,
+    "tags": [],
+    "mainImage": "https://via.placeholder.com/300x300?text=Heladera+Solar Cool"
   },
   {
     "id": 20,
     "title": "Heladera Side‑by‑Side",
-    "description": "589 L con cajón convertible y control de humedad.",
+    "shortDescription": "589 L con cajón convertible y control de humedad.",
+    "longDescription": "589 L con cajón convertible y control de humedad. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 1399,
     "stock": 8,
-    "category": "Heladeras"
+    "brand": "LG",
+    "category": "Heladeras",
+    "discount": 0,
+    "tags": [],
+    "mainImage": "https://via.placeholder.com/300x300?text=Heladera+Side‑by‑Side"
   },
-
   {
     "id": 21,
     "title": "Lavarropas Eco 10 Kg",
-    "description": "Carga frontal, motor inverter y vapor anti‑alergias.",
+    "shortDescription": "Carga frontal, motor inverter y vapor anti‑alergias.",
+    "longDescription": "Carga frontal, motor inverter y vapor anti‑alergias. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 699,
     "stock": 19,
-    "category": "Lavarropas"
+    "brand": "LG",
+    "category": "Lavarropas",
+    "discount": 0,
+    "tags": [],
+    "mainImage": "https://via.placeholder.com/300x300?text=Lavarropas+Eco 10 Kg"
   },
   {
     "id": 22,
     "title": "Lavarropas Turbo 14 Kg",
-    "description": "Carga superior con ciclo rápido de 39 min.",
+    "shortDescription": "Carga superior con ciclo rápido de 39 min.",
+    "longDescription": "Carga superior con ciclo rápido de 39 min. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 549,
     "stock": 22,
-    "category": "Lavarropas"
+    "brand": "Drean",
+    "category": "Lavarropas",
+    "discount": 0,
+    "tags": [],
+    "mainImage": "https://via.placeholder.com/300x300?text=Lavarropas+Turbo 14 Kg"
   },
   {
     "id": 23,
     "title": "Lavarropas Slim 7 Kg",
-    "description": "Diseño delgado (45 cm) ideal para espacios reducidos.",
+    "shortDescription": "Diseño delgado (45 cm) ideal para espacios reducidos.",
+    "longDescription": "Diseño delgado (45 cm) ideal para espacios reducidos. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 459,
     "stock": 31,
-    "category": "Lavarropas"
+    "brand": "LG",
+    "category": "Lavarropas",
+    "discount": 0,
+    "tags": ["ofert"],
+    "mainImage": "https://via.placeholder.com/300x300?text=Lavarropas+Slim 7 Kg"
   },
   {
     "id": 24,
     "title": "Lavarropas Twin Wash",
-    "description": "Tambor doble para lavar y secar simultáneo.",
+    "shortDescription": "Tambor doble para lavar y secar simultáneo.",
+    "longDescription": "Tambor doble para lavar y secar simultáneo. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 1299,
     "stock": 6,
-    "category": "Lavarropas"
+    "brand": "Whirlpool",
+    "category": "Lavarropas",
+    "discount": 0,
+    "tags": [],
+    "mainImage": "https://via.placeholder.com/300x300?text=Lavarropas+Twin Wash"
   },
   {
     "id": 25,
     "title": "Lavarropas Basic 6 Kg",
-    "description": "Modelo económico con 8 programas y bloqueo infantil.",
+    "shortDescription": "Modelo económico con 8 programas y bloqueo infantil.",
+    "longDescription": "Modelo económico con 8 programas y bloqueo infantil. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 349,
     "stock": 40,
-    "category": "Lavarropas"
+    "brand": "Samsung",
+    "category": "Lavarropas",
+    "discount": 0,
+    "tags": ["ofert"],
+    "mainImage": "https://via.placeholder.com/300x300?text=Lavarropas+Basic 6 Kg"
   },
-
   {
     "id": 26,
     "title": "Cocina Inducción 4 Z",
-    "description": "Placa de inducción con booster y control táctil.",
+    "shortDescription": "Placa de inducción con booster y control táctil.",
+    "longDescription": "Placa de inducción con booster y control táctil. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 599,
     "stock": 17,
-    "category": "Cocinas Electricas"
+    "brand": "Longvie",
+    "category": "Cocinas Electricas",
+    "discount": 0,
+    "tags": [],
+    "mainImage": "https://via.placeholder.com/300x300?text=Cocina+Inducción 4 Z"
   },
   {
     "id": 27,
     "title": "Cocina Vitro Duo",
-    "description": "Dos hornallas vitrocerámicas portátiles (2000 W).",
+    "shortDescription": "Dos hornallas vitrocerámicas portátiles (2000 W).",
+    "longDescription": "Dos hornallas vitrocerámicas portátiles (2000 W). Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 149,
     "stock": 80,
-    "category": "Cocinas Electricas"
+    "brand": "Philco",
+    "category": "Cocinas Electricas",
+    "discount": 0,
+    "tags": ["ofert"],
+    "mainImage": "https://via.placeholder.com/300x300?text=Cocina+Vitro Duo"
   },
   {
     "id": 28,
     "title": "Cocina Eléctrica Pro",
-    "description": "Horno eléctrico 60 L con convección y grill turbo.",
+    "shortDescription": "Horno eléctrico 60 L con convección y grill turbo.",
+    "longDescription": "Horno eléctrico 60 L con convección y grill turbo. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 399,
     "stock": 28,
-    "category": "Cocinas Electricas"
+    "brand": "Philco",
+    "category": "Cocinas Electricas",
+    "discount": 0,
+    "tags": ["ofert"],
+    "mainImage": "https://via.placeholder.com/300x300?text=Cocina+Eléctrica+Pro"
   },
   {
     "id": 29,
     "title": "Cocina Compact 30 cm",
-    "description": "Ancho 30 cm, ideal para departamentos pequeños.",
+    "shortDescription": "Ancho 30 cm, ideal para departamentos pequeños.",
+    "longDescription": "Ancho 30 cm, ideal para departamentos pequeños. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 289,
     "stock": 24,
-    "category": "Cocinas Electricas"
+    "brand": "Atma",
+    "category": "Cocinas Electricas",
+    "discount": 0,
+    "tags": ["ofert"],
+    "mainImage": "https://via.placeholder.com/300x300?text=Cocina+Compact+30 cm"
   },
   {
     "id": 30,
     "title": "Cocina Smart Wi‑Fi",
-    "description": "Control remoto por app y recetas programables.",
+    "shortDescription": "Control remoto por app y recetas programables.",
+    "longDescription": "Control remoto por app y recetas programables. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 679,
     "stock": 13,
-    "category": "Cocinas Electricas"
+    "brand": "Atma",
+    "category": "Cocinas Electricas",
+    "discount": 0,
+    "tags": [],
+    "mainImage": "https://via.placeholder.com/300x300?text=Cocina+Smart Wi‑Fi"
   },
-
   {
     "id": 31,
     "title": "TV LED 32″ HD",
-    "description": "Resolución 1366×768 y sintonizador digital integrado.",
+    "shortDescription": "Resolución 1366×768 y sintonizador digital integrado.",
+    "longDescription": "Resolución 1366×768 y sintonizador digital integrado. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 199,
     "stock": 52,
-    "category": "Televisores"
+    "brand": "LG",
+    "category": "Televisores",
+    "discount": 0,
+    "tags": ["ofert"],
+    "mainImage": "https://via.placeholder.com/300x300?text=TV LED 32″ HD"
   },
   {
     "id": 32,
     "title": "TV OLED 55″ 4K",
-    "description": "Panel OLED con Dolby Vision y sonido Atmos 40 W.",
+    "shortDescription": "Panel OLED con Dolby Vision y sonido Atmos 40 W.",
+    "longDescription": "Panel OLED con Dolby Vision y sonido Atmos 40 W. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 1199,
     "stock": 15,
-    "category": "Televisores"
+    "brand": "Samsung",
+    "category": "Televisores",
+    "discount": 0,
+    "tags": [],
+    "mainImage": "https://via.placeholder.com/300x300?text=TV OLED 55″ 4K"
   },
   {
     "id": 33,
     "title": "TV QLED 65″ 8K",
-    "description": "Procesador AI 8K y tasa 120 Hz con VRR.",
+    "shortDescription": "Procesador AI 8K y tasa 120 Hz con VRR.",
+    "longDescription": "Procesador AI 8K y tasa 120 Hz con VRR. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 2499,
     "stock": 5,
-    "category": "Televisores"
+    "brand": "LG",
+    "category": "Televisores",
+    "discount": 0,
+    "tags": [],
+    "mainImage": "https://via.placeholder.com/300x300?text=TV QLED 65″ 8K"
   },
   {
     "id": 34,
     "title": "TV Smart 43″ Full HD",
-    "description": "Sistema operativo propio, Wi‑Fi y Bluetooth integrado.",
+    "shortDescription": "Sistema operativo propio, Wi‑Fi y Bluetooth integrado.",
+    "longDescription": "Sistema operativo propio, Wi‑Fi y Bluetooth integrado. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 349,
     "stock": 37,
-    "category": "Televisores"
+    "brand": "TCL",
+    "category": "Televisores",
+    "discount": 0,
+    "tags": ["ofert"],
+    "mainImage": "https://via.placeholder.com/300x300?text=TV Smart 43″ Full HD"
   },
   {
     "id": 35,
     "title": "TV MiniLED 75″ 4K",
-    "description": "1 500 zonas de atenuación y brillo pico 2 000 nits.",
+    "shortDescription": "1 500 zonas de atenuación y brillo pico 2 000 nits.",
+    "longDescription": "1 500 zonas de atenuación y brillo pico 2 000 nits. Ideal para quienes buscan tecnología confiable, rendimiento destacado y una excelente relación precio-calidad.",
     "price": 3199,
     "stock": 3,
-    "category": "Televisores"
+    "brand": "Philips",
+    "category": "Televisores",
+    "discount": 0,
+    "tags": [],
+    "mainImage": "https://via.placeholder.com/300x300?text=TV MiniLED 75″ 4K"
   }
 ]
