@@ -6,7 +6,7 @@ import {
   Modal,
   FlatList,
 } from "react-native";
-import categories from "../data/categories.json";
+//import categories from "../data/categories.json";
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
@@ -14,11 +14,13 @@ import {
   setCategorySelected,
   filterProducts,
 } from "../features/shop/shopSlice";
+import { useGetCategoriesQuery } from "../services/shop/shopApi";
 
 const CategoriesMenu = () => {
   const [isOpenCategorias, setIsOpenCategorias] = useState(false);
   const navigation = useNavigation();
   const dispatch = useDispatch();
+  const { data: categories, isLoading, error } = useGetCategoriesQuery();
 
   const handleOpenCategorias = () => {
     setIsOpenCategorias(!isOpenCategorias);

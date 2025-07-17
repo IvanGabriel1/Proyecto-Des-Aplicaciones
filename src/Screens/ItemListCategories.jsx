@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
 import products from "../data/products.json";
 import FlatListComponent from "../components/FlatListComponent";
 import { useSelector } from "react-redux";
+import { useGetProductsByCategoryQuery } from "../services/shop/shopApi";
 
 const ItemListCategories = () => {
   const { width, height } = useWindowDimensions();
@@ -18,9 +19,15 @@ const ItemListCategories = () => {
   //     ? todosLosProductos.filter((item) => item.category === categoriaSelected)
   //     : todosLosProductos;
 
-  const filteredProducts = useSelector(
-    (state) => state.shopReducer.productsFilterByCategory
-  );
+  // const filteredProducts = useSelector(
+  //   (state) => state.shopReducer.productsFilterByCategory
+  // );
+
+  const {
+    data: filteredProducts,
+    isLoading,
+    error,
+  } = useGetProductsByCategoryQuery(categoriaSelected);
 
   return (
     <View style={styles.container}>

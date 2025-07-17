@@ -7,7 +7,7 @@ import {
   Pressable,
 } from "react-native";
 import { colors } from "../../global/colors";
-//import FlatCard from "../../components/FlatCard";
+import FlatCard from "../../components/FlatListComponent";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { useSelector, useDispatch } from "react-redux";
 import { removeItems } from "../../features/cart/cartSlice";
@@ -58,7 +58,7 @@ const CartScreen = () => {
       {cartItems.length > 0 ? (
         <FlatList
           data={cartItems}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.id.toString()}
           renderItem={renderCartItem}
           ListHeaderComponent={
             <Text style={styles.cartScreenTitle}>Tu carrito:</Text>
@@ -134,5 +134,9 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     textAlign: "center",
     paddingVertical: 8,
+  },
+  quantity: {
+    fontSize: 14,
+    fontWeight: "500",
   },
 });

@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { colors } from "../global/colors";
 import { useDispatch } from "react-redux";
-import { addItems } from "../../features/cart/cartSlice";
+import { addItems } from "../features/cart/cartSlice";
 
 const ItemDetail = ({ route }) => {
   const { product } = route.params;
@@ -51,7 +51,10 @@ const ItemDetail = ({ route }) => {
           { opacity: pressed ? 0.95 : 1 },
           styles.addToCartButton,
         ]}
-        onPress={() => dispatch(addItems({ product: product, quantity: 1 }))}
+        onPress={() => {
+          console.log("Agregando al carrito:", product.title);
+          dispatch(addItems({ product: product, quantity: 1 }));
+        }}
       >
         <Text style={styles.textAddToCart}>Agregar al carrito</Text>
       </Pressable>

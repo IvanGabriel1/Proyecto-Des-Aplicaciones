@@ -10,10 +10,11 @@ import { loadFonts } from "./src/global/fonts";
 import { useEffect, useState } from "react";
 import { marginsHeader } from "./src/global/constants";
 import { colors } from "./src/global/colors";
-import { NavigationContainer } from "@react-navigation/native";
+
 import TabNavigator from "./src/navigation/TabNavigator";
 import { Provider } from "react-redux";
 import store from "./src/store";
+import MainNavigator from "./src/navigation/MainNavigator";
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -49,10 +50,9 @@ export default function App() {
             ]}
           />
           <StatusBar style="light" />
-          <NavigationContainer>
-            {/* Aca estaba navigator y no tabnavigator */}
-            <TabNavigator />
-          </NavigationContainer>
+
+          {/* Aca estaba navigator y no tabnavigator */}
+          <MainNavigator />
         </SafeAreaView>
       </Provider>
     </>
