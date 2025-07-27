@@ -6,6 +6,7 @@ import Navigator from "./Navigator";
 import { BlurView } from "expo-blur";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { colors } from "../global/colors";
+import ProfileStackNavigator from "./ProfileStackNavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -59,6 +60,19 @@ export default function TabNavigator() {
           tabBarIcon: ({ focused }) => (
             <Icon
               name="file-text-o"
+              size={20}
+              color={focused ? colors.darkGray : colors.lightGray}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileStackNavigator}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Icon
+              name="user"
               size={20}
               color={focused ? colors.darkGray : colors.lightGray}
             />
