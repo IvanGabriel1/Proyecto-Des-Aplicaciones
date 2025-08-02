@@ -51,7 +51,7 @@ export default function App() {
           />
           <StatusBar style="light" />
 
-          {/* Aca estaba navigator y no tabnavigator */}
+
           <MainNavigator />
         </SafeAreaView>
       </Provider>

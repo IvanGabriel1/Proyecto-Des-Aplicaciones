@@ -14,6 +14,8 @@ const userSlice = createSlice({
     },
     clearUser: (state, action) => {
       state.userEmail = "";
+      state.localId = "";
+      state.profilePicture = "";
     },
     setProfilePicture: (state, action) => {
       state.profilePicture = action.payload;

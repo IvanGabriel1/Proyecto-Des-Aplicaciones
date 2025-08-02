@@ -4,10 +4,25 @@ import { marginsHeader } from "../global/constants";
 import CategoriesMenu from "./CategoriesMenu";
 import { useNavigation } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { clearSession } from "../db";
+import { clearUser } from "../features/user/userSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 const Header = ({ title, setIsCategoria }) => {
   const navigation = useNavigation();
   const canGoBack = navigation.canGoBack();
+  const user = useSelector((state) => state.userReducer.userEmail);
+
+  const dispatch = useDispatch();
+
+  const handleClearSession = async () => {
+    try {
+      await clearSession();
+      dispatch(clearUser());
+    } catch {
+      console.log("Hubo un error al limpiar la sesión");
+    }
+  };
 
   return (
     <View>
@@ -34,6 +49,11 @@ const Header = ({ title, setIsCategoria }) => {
             <Icon name="angle-left" size={32} />
             <Text>Volver</Text>
           </View>
+        </Pressable>
+      )}
+      {user && (
+        <Pressable onPress={handleClearSession}>
+          <Text>Salir</Text>
         </Pressable>
       )}
     </View>

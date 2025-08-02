@@ -11,7 +11,7 @@ export default function ProfileStackNavigator() {
       initialRouteName="Perfil"
       screenOptions={{
         header: ({ route }) => (
-          <Header title="Mundo Geek" subtitle={route.name} />
+          <Header title="Equipment for home" subtitle={route.name} />
         ),
       }}
     >

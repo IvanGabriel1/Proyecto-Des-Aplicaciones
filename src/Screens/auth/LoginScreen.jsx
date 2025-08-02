@@ -5,19 +5,23 @@ import {
   TextInput,
   Pressable,
   Dimensions,
+  Switch,
 } from "react-native";
 import { colors } from "../../global/colors";
 import { useEffect, useState } from "react";
 import { useLoginMutation } from "../../services/auth/authApi";
 import { setUser } from "../../features/user/userSlice";
 import { useDispatch } from "react-redux";
+import { saveSession, clearSession } from "../../db";
 
 const textInputWidth = Dimensions.get("window").width * 0.7;
 
 const LoginScreen = ({ navigation, route }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [persistSession, setPersistSession] = useState(false);
   const [triggerLogin, result] = useLoginMutation();
+  const [error, setError] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -25,22 +29,36 @@ const LoginScreen = ({ navigation, route }) => {
     triggerLogin({ email, password });
   };
 
-  console.log(result);
-  useEffect(() => {
-    if (result.status === "fulfilled") {
-      dispatch(
-        setUser({ email: result.data.email, localId: result.data.localId })
-      );
-    }
-  }, [result]);
+  //console.log(result);
 
-  //Usuario registrado:
-  // hola@coder.com.ar
-  // 123456
+  useEffect(() => {
+    const saveLoginSession = async () => {
+      if (result.status === "fulfilled") {
+        try {
+          const { localId, email } = result.data;
+
+          if (persistSession) {
+            await saveSession(localId, email);
+          } else {
+            await clearSession();
+          }
+          dispatch(setUser({ localId, email }));
+          setError(false);
+        } catch (error) {
+          console.log("Error al guardar sesión:", error);
+          setError(true);
+        }
+      } else if (result.status === "rejected") {
+        setError(true);
+      }
+    };
+
+    saveLoginSession();
+  }, [result]);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Mundo Geek</Text>
+      <Text style={styles.title}>Equipment for home</Text>
       <Text style={styles.subTitle}>Inicia sesión</Text>
       <View style={styles.inputContainer}>
         <TextInput
@@ -57,6 +75,11 @@ const LoginScreen = ({ navigation, route }) => {
           secureTextEntry
         />
       </View>
+
+      {error ? (
+        <Text style={styles.error}>Hubo un error al iniciar sesion</Text>
+      ) : null}
+
       <View style={styles.footTextContainer}>
         <Text style={styles.whiteText}>¿No tienes una cuenta?</Text>
         <Pressable onPress={() => navigation.navigate("Signup")}>
@@ -74,6 +97,17 @@ const LoginScreen = ({ navigation, route }) => {
       <Pressable style={styles.btn} onPress={onsubmit}>
         <Text style={styles.btnText}>Iniciar sesión</Text>
       </Pressable>
+      <View style={styles.rememberMe}>
+        <Text style={{ color: colors.white }}>¿Mantener sesión iniciada?</Text>
+        <Switch
+          onValueChange={() => setPersistSession(!persistSession)}
+          value={persistSession}
+          trackColor={{
+            false: `${colors.white}`,
+            true: `${colors.darkGray}`,
+          }}
+        />
+      </View>
     </View>
   );
 };
@@ -83,66 +117,78 @@ export default LoginScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    backgroundColor: colors.primary,
     alignItems: "center",
-    backgroundColor: colors.purple,
+    justifyContent: "center",
+    paddingHorizontal: 24,
   },
   title: {
-    color: colors.neonGreen,
-    fontFamily: "PressStart2P",
-    fontSize: 24,
+    color: colors.third,
+    fontFamily: "Michroma-Regular",
+    fontSize: 28,
+    marginBottom: 12,
+    textAlign: "center",
+    letterSpacing: 1,
   },
   subTitle: {
-    fontFamily: "Montserrat",
-    fontSize: 18,
-    color: colors.yellow,
-    fontWeight: "700",
-    letterSpacing: 3,
+    fontFamily: "Caveat-Medium",
+    fontSize: 22,
+    color: colors.white,
+    marginBottom: 24,
+    letterSpacing: 2,
   },
   inputContainer: {
     gap: 16,
-    margin: 16,
-    marginTop: 48,
+    marginBottom: 32,
+    width: "100%",
     alignItems: "center",
   },
   textInput: {
-    padding: 8,
-    paddingLeft: 16,
-    borderRadius: 16,
+    width: "85%",
+    paddingVertical: 12,
+    paddingHorizontal: 18,
     backgroundColor: colors.darkGray,
-    width: textInputWidth,
     color: colors.white,
+    borderRadius: 12,
+    fontSize: 16,
   },
   footTextContainer: {
     flexDirection: "row",
-    gap: 8,
+    marginBottom: 24,
+    gap: 6,
   },
   whiteText: {
     color: colors.white,
+    fontSize: 14,
   },
   underLineText: {
     textDecorationLine: "underline",
-  },
-  strongText: {
-    fontWeight: "900",
-    fontSize: 16,
+    fontWeight: "bold",
   },
   btn: {
-    padding: 16,
-    paddingHorizontal: 32,
     backgroundColor: colors.black,
-    borderRadius: 16,
-    marginTop: 32,
+    paddingVertical: 14,
+    paddingHorizontal: 40,
+    borderRadius: 20,
+    marginBottom: 24,
   },
   btnText: {
     color: colors.white,
     fontSize: 16,
-    fontWeight: "700",
+    fontWeight: "bold",
+    letterSpacing: 1,
+  },
+  rememberMe: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
   },
   error: {
-    padding: 16,
-    backgroundColor: colors.red,
-    borderRadius: 8,
-    color: colors.white,
+    color: colors.red,
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: 14,
+    marginBottom: 12,
+    marginTop: 4,
   },
 });
