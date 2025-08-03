@@ -7,7 +7,6 @@ const CartStackNavigator = () => {
   const Stack = createNativeStackNavigator();
   const { width, height } = useWindowDimensions();
 
-  // Ejemplo simple de lógica responsive
   const contentWidth = width > 500 ? "80%" : "100%";
   return (
     <View

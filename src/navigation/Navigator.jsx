@@ -1,4 +1,4 @@
-import { StyleSheet, View, useWindowDimensions } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ItemListCategories from "../Screens/ItemListCategories";
 import Home from "../Screens/Home";
@@ -7,17 +7,9 @@ import Header from "../components/Header";
 
 const Navigator = () => {
   const Stack = createNativeStackNavigator();
-  const { width, height } = useWindowDimensions();
 
-  // Ejemplo simple de lógica responsive
-  const contentWidth = width > 500 ? "80%" : "100%";
   return (
-    <View
-      style={[
-        styles.navigatorContainer,
-        { width: contentWidth, height: height * 0.9 },
-      ]}
-    >
+    <View style={[styles.navigatorContainer, { width: "100%" }]}>
       <Stack.Navigator
         initialRouteName="Home"
         screenOptions={{

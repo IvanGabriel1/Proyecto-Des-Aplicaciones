@@ -5,12 +5,15 @@ import {
   View,
   Image,
   Pressable,
+  Dimensions,
 } from "react-native";
 import { colors } from "../../global/colors";
-import FlatCard from "../../components/FlatListComponent";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { useSelector, useDispatch } from "react-redux";
 import { removeItems } from "../../features/cart/cartSlice";
+import FlatCard from "../../components/FlatListComponent";
+
+const { width } = Dimensions.get("window");
 
 const CartScreen = () => {
   const cartItems = useSelector((state) => state.cartReducer.cartItems);
@@ -19,7 +22,7 @@ const CartScreen = () => {
 
   const FooterComponent = () => (
     <View style={styles.footerContainer}>
-      <Text style={styles.footerTotal}>Total: $ {total} </Text>
+      <Text style={styles.footerTotal}>Total: $ {total}</Text>
       <Pressable style={styles.confirmButton}>
         <Text style={styles.confirmButtonText}>Confirmar</Text>
       </Pressable>
@@ -28,19 +31,18 @@ const CartScreen = () => {
 
   const renderCartItem = ({ item }) => (
     <FlatCard style={styles.cartContainer}>
-      <View>
-        <Image
-          source={{ uri: item.mainImage }}
-          style={styles.cartImage}
-          resizeMode="cover"
-        />
-      </View>
+      <Image
+        source={{ uri: item.mainImage }}
+        style={styles.cartImage}
+        resizeMode="cover"
+      />
       <View style={styles.cartDescription}>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.description}>{item.shortDescription}</Text>
         <Text style={styles.price}>Precio unitario: $ {item.price}</Text>
-        <Text stlyle={styles.quantity}>Cantidad: {item.quantity}</Text>
+        <Text style={styles.quantity}>Cantidad: {item.quantity}</Text>
         <Text style={styles.total}>Total: $ {item.quantity * item.price}</Text>
+
         <Pressable onPress={() => dispatch(removeItems(item.id))}>
           <Icon
             name="delete"
@@ -54,7 +56,7 @@ const CartScreen = () => {
   );
 
   return (
-    <>
+    <View style={{ flex: 1, backgroundColor: colors.white }}>
       {cartItems.length > 0 ? (
         <FlatList
           data={cartItems}
@@ -66,9 +68,13 @@ const CartScreen = () => {
           ListFooterComponent={<FooterComponent />}
         />
       ) : (
-        <Text>Aún no hay productos en el carrito</Text>
+        <View style={styles.emptyCartContainer}>
+          <Text style={styles.emptyCartText}>
+            Aún no hay productos en el carrito
+          </Text>
+        </View>
       )}
-    </>
+    </View>
   );
 };
 
@@ -77,66 +83,88 @@ export default CartScreen;
 const styles = StyleSheet.create({
   cartContainer: {
     flexDirection: "row",
-    padding: 20,
-    justifyContent: "flex-start",
-    margin: 16,
+    padding: 16,
+    margin: 12,
+    borderRadius: 12,
+    backgroundColor: "#f8f8f8",
     alignItems: "center",
-    gap: 10,
+    gap: 12,
   },
   cartImage: {
-    width: 80,
-    height: 80,
+    width: 90,
+    height: 90,
+    borderRadius: 8,
   },
   cartDescription: {
-    width: "80%",
-    padding: 20,
+    flex: 1,
+    paddingHorizontal: 12,
+    justifyContent: "space-between",
   },
   title: {
     fontSize: 16,
-    fontWeight: "700",
+    fontWeight: "bold",
+    marginBottom: 4,
   },
   description: {
-    marginBottom: 16,
+    fontSize: 14,
+    color: "#555",
+    marginBottom: 8,
+  },
+  price: {
+    fontSize: 14,
+    marginBottom: 2,
+  },
+  quantity: {
+    fontSize: 14,
+    marginBottom: 2,
   },
   total: {
-    marginTop: 16,
-    fontSize: 16,
-    fontWeight: "700",
+    fontSize: 14,
+    fontWeight: "bold",
+    marginTop: 4,
   },
   trashIcon: {
-    alignSelf: "flex-end",
-    marginRight: 16,
+    alignSelf: "flex-start",
+    marginTop: 8,
   },
   footerContainer: {
-    padding: 32,
-    gap: 8,
-    justifyContent: "center",
+    padding: 20,
     alignItems: "center",
+    borderTopWidth: 1,
+    borderColor: "#ccc",
+    backgroundColor: "#fff",
   },
   footerTotal: {
-    fontSize: 16,
-    fontWeight: "700",
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 12,
   },
   confirmButton: {
-    padding: 8,
-    paddingHorizontal: 16,
+    paddingVertical: 10,
+    paddingHorizontal: 24,
     backgroundColor: colors.purple,
-    borderRadius: 16,
-    marginBottom: 24,
+    borderRadius: 20,
   },
   confirmButtonText: {
     color: colors.white,
     fontSize: 16,
-    fontWeight: "700",
+    fontWeight: "600",
   },
   cartScreenTitle: {
-    fontSize: 16,
-    fontWeight: "700",
+    fontSize: 20,
+    fontWeight: "bold",
     textAlign: "center",
-    paddingVertical: 8,
+    paddingVertical: 16,
+    color: colors.purple,
   },
-  quantity: {
-    fontSize: 14,
-    fontWeight: "500",
+  emptyCartContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 32,
+  },
+  emptyCartText: {
+    fontSize: 16,
+    color: "#777",
   },
 });

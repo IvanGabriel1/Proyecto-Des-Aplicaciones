@@ -1,5 +1,5 @@
-const paddingTop = 35;
-const paddingLongTop = 10;
+const paddingTop = 40;
+const paddingLongTop = 15;
 //-----------------------
 const headerHeight = 55;
 

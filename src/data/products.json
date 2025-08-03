@@ -8,7 +8,7 @@
     "stock": 42,
     "brand": "Motorola",
     "category": "Celulares",
-    "discount": 0,
+    "discount": 5,
     "tags": [],
     "mainImage": "https://i.postimg.cc/kXQRP9Qd/Celular-Alpha-X.webp"
   },
@@ -21,7 +21,7 @@
     "stock": 120,
     "brand": "Xiaomi",
     "category": "Celulares",
-    "discount": 0,
+    "discount": 20,
     "tags": ["ofert"],
     "mainImage": "https://i.postimg.cc/2jJ7SzLb/Celular-Beta-Lite.jpg"
   },
@@ -47,7 +47,7 @@
     "stock": 75,
     "brand": "Xiaomi",
     "category": "Celulares",
-    "discount": 0,
+    "discount": 20,
     "tags": ["ofert"],
     "mainImage": "https://i.postimg.cc/hjYTvrvW/639d5f1d101e5259a564ac2e-etigood-mini-smartphone-unlocked-1gb-ram.jpg"
   },
@@ -73,7 +73,7 @@
     "stock": 27,
     "brand": "Acer",
     "category": "Laptops",
-    "discount": 0,
+    "discount": 15,
     "tags": [],
     "mainImage": "https://i.postimg.cc/T18jQ06j/descarga.jpg"
   },
@@ -99,7 +99,7 @@
     "stock": 54,
     "brand": "Asus",
     "category": "Laptops",
-    "discount": 0,
+    "discount": 10,
     "tags": ["popular"],
     "mainImage": "https://i.postimg.cc/t4R3r7Lc/descarga-2.jpg"
   },
@@ -138,7 +138,7 @@
     "stock": 23,
     "brand": "Microsoft",
     "category": "Consolas",
-    "discount": 0,
+    "discount": 30,
     "tags": [],
     "mainImage": "https://i.postimg.cc/mkN9jGVR/descarga-4.jpg"
   },
@@ -151,7 +151,7 @@
     "stock": 40,
     "brand": "Microsoft",
     "category": "Consolas",
-    "discount": 0,
+    "discount": 30,
     "tags": ["ofert"],
     "mainImage": "https://i.postimg.cc/jqzytzT9/descarga-5.jpg"
   },
@@ -164,7 +164,7 @@
     "stock": 150,
     "brand": "Sony",
     "category": "Consolas",
-    "discount": 0,
+    "discount": 40,
     "tags": ["ofert"],
     "mainImage": "https://i.postimg.cc/fRbdcpdn/descarga-6.jpg"
   },
@@ -203,7 +203,7 @@
     "stock": 9,
     "brand": "Whirlpool",
     "category": "Heladeras",
-    "discount": 0,
+    "discount": 10,
     "tags": [],
     "mainImage": "https://i.postimg.cc/nrZjCPxW/descarga-8.jpg"
   },
@@ -242,7 +242,7 @@
     "stock": 12,
     "brand": "Samsung",
     "category": "Heladeras",
-    "discount": 0,
+    "discount": 5,
     "tags": [],
     "mainImage": "https://i.postimg.cc/k5Q7BX5n/descarga.jpg"
   },
@@ -320,7 +320,7 @@
     "stock": 40,
     "brand": "Samsung",
     "category": "Lavarropas",
-    "discount": 0,
+    "discount": 15,
     "tags": ["ofert"],
     "mainImage": "https://i.postimg.cc/pdxgcQ2H/descarga-3.jpg"
   },
@@ -333,7 +333,7 @@
     "stock": 17,
     "brand": "Longvie",
     "category": "Cocinas Electricas",
-    "discount": 0,
+    "discount": 10,
     "tags": [],
     "mainImage": "https://i.postimg.cc/85YXGLVs/descarga-4.jpg"
   },
@@ -372,7 +372,7 @@
     "stock": 24,
     "brand": "Atma",
     "category": "Cocinas Electricas",
-    "discount": 0,
+    "discount": 25,
     "tags": ["ofert"],
     "mainImage": "https://i.postimg.cc/K8QdVk43/descarga-6.jpg"
   },
@@ -385,7 +385,7 @@
     "stock": 13,
     "brand": "Atma",
     "category": "Cocinas Electricas",
-    "discount": 0,
+    "discount": 5,
     "tags": [],
     "mainImage": "https://i.postimg.cc/CKQ9h3GF/Tuya-Smart-Induction-Hybrid-Cooker-Sensor-Touch-Control-High-Tech-Wi-Fi-Controlled.avif"
   },
@@ -424,7 +424,7 @@
     "stock": 5,
     "brand": "LG",
     "category": "Televisores",
-    "discount": 0,
+    "discount": 10,
     "tags": [],
     "mainImage": "https://i.postimg.cc/xjRyLKZm/qn700-1.jpg"
   },
@@ -450,7 +450,7 @@
     "stock": 3,
     "brand": "Philips",
     "category": "Televisores",
-    "discount": 0,
+    "discount": 20,
     "tags": [],
     "mainImage": "https://i.postimg.cc/MGV1HRRv/original.jpg"
   }

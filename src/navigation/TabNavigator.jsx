@@ -53,19 +53,7 @@ export default function TabNavigator() {
           ),
         }}
       />
-      <Tab.Screen
-        name="Orders"
-        component={OrdersStackNavigator}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <Icon
-              name="file-text-o"
-              size={20}
-              color={focused ? colors.darkGray : colors.lightGray}
-            />
-          ),
-        }}
-      />
+
       <Tab.Screen
         name="Profile"
         component={ProfileStackNavigator}

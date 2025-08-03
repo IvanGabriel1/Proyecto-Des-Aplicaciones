@@ -12,17 +12,6 @@ const ItemListCategories = () => {
     (state) => state.shopReducer.categorySelected
   );
 
-  // const todosLosProductos = useSelector((state) => state.shopReducer.products);
-
-  // const filteredProducts =
-  //   categoriaSelected && categoriaSelected !== "Ver Todo"
-  //     ? todosLosProductos.filter((item) => item.category === categoriaSelected)
-  //     : todosLosProductos;
-
-  // const filteredProducts = useSelector(
-  //   (state) => state.shopReducer.productsFilterByCategory
-  // );
-
   const {
     data: filteredProducts,
     isLoading,
@@ -40,7 +29,6 @@ const ItemListCategories = () => {
           },
         ]}
       >
-        {/* Productos {selectedCategory && `- ${selectedCategory}`} : */}
         Productos {categoriaSelected && `- ${categoriaSelected}`} :
       </Text>
       <FlatListComponent data={filteredProducts} />
