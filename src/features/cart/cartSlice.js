@@ -11,7 +11,7 @@ const cartSlice = createSlice({
   reducers: {
     addItems: (state, action) => {
       const { product, quantity } = action.payload;
-      console.log("Añadiendo producto al carrito...", product, quantity);
+      // console.log("Añadiendo producto al carrito...", product, quantity);
       const productInCart = state.cartItems.find(
         (item) => item.id === product.id
       );
@@ -25,7 +25,7 @@ const cartSlice = createSlice({
         (acc, item) => acc + item.price * item.quantity,
         0
       );
-      console.log(current(state).cartItems);
+      //  console.log(current(state).cartItems);
     },
     removeItems: (state, action) => {
       state.cartItems = state.cartItems.filter(

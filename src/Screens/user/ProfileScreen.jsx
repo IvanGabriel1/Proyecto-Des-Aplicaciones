@@ -17,19 +17,17 @@ import MapView, { Marker } from "react-native-maps";
 import * as Location from "expo-location";
 
 const ProfileScreen = () => {
-  //const [image, setImage] = useState("")
   const user = useSelector((state) => state.userReducer.userEmail);
   const localId = useSelector((state) => state.userReducer.localId);
   const image = useSelector((state) => state.userReducer.profilePicture);
-  const [triggerPutProfilePicture, result] = usePutProfilePictureMutation();
+  const [triggerPutProfilePicture] = usePutProfilePictureMutation();
   const [location, setLocation] = useState(null);
-  const [locationLoaded, setLocationLoaded] = useState(false); //va a indicar si la ubicacion se cargo o no
+  const [locationLoaded, setLocationLoaded] = useState(false);
   const [address, setAddress] = useState("");
 
   const dispatch = useDispatch();
 
   const pickImage = async () => {
-    // No permissions request is necessary for launching the image library
     let result = await ImagePicker.launchCameraAsync({
       mediaTypes: ["images"],
       allowsEditing: true,
@@ -38,23 +36,19 @@ const ProfileScreen = () => {
       base64: true,
     });
 
-    //console.log(result);
-
     if (!result.canceled) {
       const imgBase64 = `data:image/jpeg;base64,${result.assets[0].base64}`;
       dispatch(setProfilePicture(imgBase64));
       triggerPutProfilePicture({ localId: localId, image: imgBase64 });
-      //setImage(result.assets[0].uri);
     }
   };
 
   useEffect(() => {
     async function getCurrentLocation() {
       try {
-        //Pido permisos:
         let { status } = await Location.requestForegroundPermissionsAsync();
         if (status !== "granted") {
-          console.log("Error al obtener los permisos");
+          //console.log("Permiso denegado para ubicación.");
           setLocationLoaded(true);
           return;
         }
@@ -65,13 +59,11 @@ const ProfileScreen = () => {
             `https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.coords.latitude},${location.coords.longitude}&key=${process.env.EXPO_PUBLIC_GMAPS_API_KEY}`
           );
           const data = await response.json();
-          //console.log(data)
-          setAddress(data.results[0].formatted_address);
-          //console.log("Location:",location)
+          setAddress(data.results[0]?.formatted_address || "");
           setLocation(location);
         }
       } catch (error) {
-        console.log("Error al obtener la ubicación:", error);
+        // console.log("Error al obtener ubicación:", error);
       } finally {
         setLocationLoaded(true);
       }
@@ -81,42 +73,33 @@ const ProfileScreen = () => {
   }, []);
 
   return (
-    <View style={styles.profileContainer}>
-      <View style={styles.imageProfileContainer}>
+    <View style={styles.container}>
+      <View style={styles.imageContainer}>
         {image ? (
-          <Image
-            source={{ uri: image }}
-            resizeMode="cover"
-            style={styles.profileImage}
-          />
+          <Image source={{ uri: image }} style={styles.profileImage} />
         ) : (
-          <Text style={styles.textProfilePlaceHolder}>
+          <Text style={styles.imagePlaceholder}>
             {user.charAt(0).toUpperCase()}
           </Text>
         )}
-        <Pressable
-          onPress={pickImage}
-          style={({ pressed }) => [
-            { opacity: pressed ? 0.9 : 1 },
-            styles.cameraIcon,
-          ]}
-        >
+        <Pressable onPress={pickImage} style={styles.cameraIcon}>
           <CameraIcon />
         </Pressable>
       </View>
-      <Text style={styles.profileData}>Email: {user}</Text>
-      <View style={styles.titleContainer}>
-        <Text>Mi ubicación:</Text>
-      </View>
-      <View style={styles.mapContainer}>
+
+      <Text style={styles.emailText}>{user}</Text>
+
+      <Text style={styles.sectionTitle}>Mi ubicación</Text>
+
+      <View style={styles.mapWrapper}>
         {location ? (
           <MapView
             style={styles.map}
             initialRegion={{
               latitude: location.coords.latitude,
               longitude: location.coords.longitude,
-              latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421,
+              latitudeDelta: 0.01,
+              longitudeDelta: 0.01,
             }}
           >
             <Marker
@@ -124,20 +107,21 @@ const ProfileScreen = () => {
                 latitude: location.coords.latitude,
                 longitude: location.coords.longitude,
               }}
-              title={"Lugar Geek"}
+              title={"Tu ubicación"}
             />
           </MapView>
         ) : locationLoaded ? (
-          <Text>Hubo un problema al obtener la ubicación</Text>
+          <Text style={styles.errorText}>No se pudo obtener ubicación</Text>
         ) : (
-          <ActivityIndicator />
+          <ActivityIndicator size="large" color={colors.primary} />
         )}
       </View>
-      <View style={styles.placeDescriptionContainer}>
-        <View style={styles.addressContainer}>
-          <Text style={styles.address}>{address || ""}</Text>
+
+      {address ? (
+        <View style={styles.addressBox}>
+          <Text style={styles.addressText}>{address}</Text>
         </View>
-      </View>
+      ) : null}
     </View>
   );
 };
@@ -145,52 +129,81 @@ const ProfileScreen = () => {
 export default ProfileScreen;
 
 const styles = StyleSheet.create({
-  profileContainer: {
-    paddingTop: 32,
-    justifyContent: "center",
+  container: {
+    flex: 1,
+    padding: 24,
     alignItems: "center",
+    backgroundColor: "#fdfdfd",
   },
-  imageProfileContainer: {
-    width: 128,
-    height: 128,
-    borderRadius: 128,
-    backgroundColor: colors.purple,
-    justifyContent: "center",
-    alignItems: "center",
+  imageContainer: {
+    width: 140,
+    height: 140,
+    borderRadius: 70,
+    backgroundColor: colors.primary,
+    marginBottom: 16,
+    position: "relative",
   },
-  textProfilePlaceHolder: {
-    color: colors.white,
-    fontSize: 48,
-  },
-  profileData: {
-    paddingVertical: 16,
-    fontSize: 16,
+  profileImage: {
+    width: "100%",
+    height: "100%",
+    borderRadius: 70,
   },
   cameraIcon: {
     position: "absolute",
     bottom: 0,
     right: 0,
+    backgroundColor: "#fff",
+    borderRadius: 20,
   },
-  profileImage: {
-    width: 128,
-    height: 128,
-    borderRadius: 128,
+  emailText: {
+    fontSize: 18,
+    fontWeight: "500",
+    marginBottom: 24,
   },
-  mapContainer: {
+  sectionTitle: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: colors.primary,
+    alignSelf: "flex-start",
+    marginBottom: 8,
+  },
+  mapWrapper: {
     width: "100%",
-    height: 240,
-    overflow: "hidden",
-    elevation: 5,
+    height: 200,
+    borderRadius: 12,
     marginBottom: 16,
   },
   map: {
-    height: 240,
+    width: "100%",
+    height: "100%",
   },
-  mapTitle: {
-    fontWeight: "700",
+  addressBox: {
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    borderRadius: 12,
   },
-  placeDescriptionContainer: {
-    flexDirection: "row",
-    gap: 16,
+  addressText: {
+    fontSize: 14,
+
+    textAlign: "center",
+  },
+  errorText: {
+    fontSize: 14,
+    color: "red",
+    textAlign: "center",
+    padding: 12,
+  },
+  imagePlaceholder: {
+    width: "100%",
+    height: "100%",
+    borderRadius: 70,
+    backgroundColor: colors.primary,
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    textAlignVertical: "center",
+    fontSize: 48,
+    color: "white",
+    fontWeight: "bold",
   },
 });

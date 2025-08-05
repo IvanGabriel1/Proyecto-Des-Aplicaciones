@@ -12,8 +12,6 @@ import { useSignupMutation } from "../../services/auth/authApi";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../features/user/userSlice";
 
-const textInputWidth = Dimensions.get("window").width * 0.7;
-
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -41,6 +39,7 @@ const SignupScreen = ({ navigation }) => {
       triggerSignUp({ email, password });
     } else {
       alert("Las contraseñas no coinciden");
+      setError(true);
     }
   };
 

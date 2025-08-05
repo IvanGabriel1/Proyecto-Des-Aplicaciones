@@ -6,7 +6,6 @@ import {
   Modal,
   FlatList,
 } from "react-native";
-//import categories from "../data/categories.json";
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
@@ -29,7 +28,9 @@ const CategoriesMenu = () => {
   const handleChosenCategory = (catTitle) => {
     dispatch(setCategorySelected(catTitle));
     dispatch(filterProducts());
-    navigation.navigate("ItemListCategories");
+    navigation.navigate("Shop", {
+      screen: "ItemListCategories",
+    });
     setIsOpenCategorias(false);
   };
 

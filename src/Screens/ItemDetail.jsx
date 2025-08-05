@@ -8,12 +8,13 @@ import {
   useWindowDimensions,
 } from "react-native";
 import { colors } from "../global/colors";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItems } from "../features/cart/cartSlice";
 
 const ItemDetail = ({ route }) => {
   const { product } = route.params;
   const { width } = useWindowDimensions();
+  const cartItems = useSelector((state) => state.cartReducer.cartItems);
 
   const dispatch = useDispatch();
   return (
@@ -48,11 +49,11 @@ const ItemDetail = ({ route }) => {
       <Text style={styles.price}>Precio: ${product.price}</Text>
       <Pressable
         style={({ pressed }) => [
-          { opacity: pressed ? 0.95 : 1 },
+          { opacity: pressed ? 0.75 : 1 },
           styles.addToCartButton,
         ]}
         onPress={() => {
-          console.log("Agregando al carrito:", product.title);
+          // console.log("Agregando al carrito:", product.title);
           dispatch(addItems({ product: product, quantity: 1 }));
         }}
       >

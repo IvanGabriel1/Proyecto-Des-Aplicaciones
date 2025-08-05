@@ -1,16 +1,43 @@
-# Equipment for home
+# Equipment for Home
 
-El proyecto "Equipment for home" se realiza para el curso de desarrollo de aplicaciones de coderhouse
+Este proyecto fue desarrollado como parte del curso de **Desarrollo de Aplicaciones** de Coderhouse.  
+Es una aplicación móvil construida con **React Native** y **Expo**, enfocada en la gestión o visualización de equipamiento para el hogar.
 
-## Instalacion:
+## 🛠️ Tecnologías utilizadas
 
-1. Clonar el repositorio
-2. Instalar con npm i
+- React Native
+- Expo
+- React Navigation
+- Redux Toolkit
+- Firebase (Auth y Firestore)
+- AsyncStorage
+
+## 📦 Instalación
+
+1. Clonar el repositorio:
+
+   ```
+   https://github.com/IvanGabriel1/Proyecto-Des-Aplicaciones
+   cd equipment-for-home
+   ```
+
+2. Instalar dependencias:
+   npm install
 
 ## Uso
 
-1. Ejecutar con expo start
+Iniciar el servidor de desarrollo con Expo:
 
-## Licencia
+npx expo start
 
-Todos los derechos reservados
+Escanear el código QR con la app de Expo Go o correrlo en un emulador.
+
+### 👨‍💻 Autor
+
+Desarrollado por Iván Braun
+📧 Contacto: ivangabraun@gmail.com
+🌐 GitHub: https://github.com/IvanGabriel1
+
+### 📄 Licencia
+
+Todos los derechos reservados.

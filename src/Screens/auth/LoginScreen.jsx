@@ -14,8 +14,6 @@ import { setUser } from "../../features/user/userSlice";
 import { useDispatch } from "react-redux";
 import { saveSession, clearSession } from "../../db";
 
-const textInputWidth = Dimensions.get("window").width * 0.7;
-
 const LoginScreen = ({ navigation, route }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -45,7 +43,7 @@ const LoginScreen = ({ navigation, route }) => {
           dispatch(setUser({ localId, email }));
           setError(false);
         } catch (error) {
-          console.log("Error al guardar sesión:", error);
+          // console.log("Error al guardar sesión:", error);
           setError(true);
         }
       } else if (result.status === "rejected") {

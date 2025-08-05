@@ -11,9 +11,6 @@ import { colors } from "../../global/colors";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { useSelector, useDispatch } from "react-redux";
 import { removeItems } from "../../features/cart/cartSlice";
-import FlatCard from "../../components/FlatListComponent";
-
-const { width } = Dimensions.get("window");
 
 const CartScreen = () => {
   const cartItems = useSelector((state) => state.cartReducer.cartItems);
@@ -23,36 +20,44 @@ const CartScreen = () => {
   const FooterComponent = () => (
     <View style={styles.footerContainer}>
       <Text style={styles.footerTotal}>Total: $ {total}</Text>
-      <Pressable style={styles.confirmButton}>
-        <Text style={styles.confirmButtonText}>Confirmar</Text>
+      <Pressable
+        onPress={() => {
+          alert("Gestionar orden");
+        }}
+      >
+        <Text style={styles.textAddToCart}>Comprar</Text>
       </Pressable>
     </View>
   );
 
   const renderCartItem = ({ item }) => (
-    <FlatCard style={styles.cartContainer}>
-      <Image
-        source={{ uri: item.mainImage }}
-        style={styles.cartImage}
-        resizeMode="cover"
-      />
-      <View style={styles.cartDescription}>
-        <Text style={styles.title}>{item.title}</Text>
-        <Text style={styles.description}>{item.shortDescription}</Text>
-        <Text style={styles.price}>Precio unitario: $ {item.price}</Text>
-        <Text style={styles.quantity}>Cantidad: {item.quantity}</Text>
-        <Text style={styles.total}>Total: $ {item.quantity * item.price}</Text>
+    <>
+      <View style={styles.cartContainer}>
+        <Image
+          source={{ uri: item.mainImage }}
+          style={styles.cartImage}
+          resizeMode="cover"
+        />
+        <View style={styles.cartDescription}>
+          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.description}>{item.shortDescription}</Text>
+          <Text style={styles.price}>Precio unitario: $ {item.price}</Text>
+          <Text style={styles.quantity}>Cantidad: {item.quantity}</Text>
+          <Text style={styles.total}>
+            Total: $ {item.quantity * item.price}
+          </Text>
 
-        <Pressable onPress={() => dispatch(removeItems(item.id))}>
-          <Icon
-            name="delete"
-            size={24}
-            color="#FC7A5E"
-            style={styles.trashIcon}
-          />
-        </Pressable>
+          <Pressable onPress={() => dispatch(removeItems(item.id))}>
+            <Icon
+              name="delete"
+              size={24}
+              color="#FC7A5E"
+              style={styles.trashIcon}
+            />
+          </Pressable>
+        </View>
       </View>
-    </FlatCard>
+    </>
   );
 
   return (
@@ -166,5 +171,14 @@ const styles = StyleSheet.create({
   emptyCartText: {
     fontSize: 16,
     color: "#777",
+  },
+  textAddToCart: {
+    backgroundColor: colors.primary,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 16,
+    color: colors.white,
+    fontSize: 24,
+    textAlign: "center",
   },
 });

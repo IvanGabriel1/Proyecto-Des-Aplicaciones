@@ -58,11 +58,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     marginLeft: "auto",
     marginRight: "auto",
-    elevation: 4, // Android
-    shadowColor: "#000", // iOS
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 6,
+    elevation: 4,
     alignItems: "center",
   },
   image: {

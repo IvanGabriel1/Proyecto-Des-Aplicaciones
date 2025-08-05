@@ -1,7 +1,6 @@
 import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import CartStackNavigator from "./CartStackNavigator";
-import OrdersStackNavigator from "./OrdersStackNavigator";
 import Navigator from "./Navigator";
 import { BlurView } from "expo-blur";
 import Icon from "react-native-vector-icons/FontAwesome";

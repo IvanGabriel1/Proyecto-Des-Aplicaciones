@@ -4,7 +4,7 @@ let db;
 
 export const initDB = async () => {
   if (!db) {
-    db = await SQLite.openDatabaseAsync("mundogeek.db");
+    db = await SQLite.openDatabaseAsync("EFH.db");
   }
 };
 
@@ -32,7 +32,7 @@ export const saveSession = async (localId, email) => {
 export const getSession = async () => {
   await initDB();
   const result = await db.getAllAsync("SELECT * FROM session LIMIT 1;");
-  console.log("Obteniendo datos de DB", result);
+  // console.log("Obteniendo datos de DB", result);
   return result.length > 0 ? result[0] : null;
 };
 
