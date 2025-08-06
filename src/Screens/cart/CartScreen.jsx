@@ -7,7 +7,7 @@ import {
   Pressable,
   Dimensions,
 } from "react-native";
-import { colors } from "../../global/colors";
+import { colors } from "../../Global/colors";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { useSelector, useDispatch } from "react-redux";
 import { removeItems } from "../../features/cart/cartSlice";

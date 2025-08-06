@@ -6,7 +6,7 @@ import {
   Pressable,
   Dimensions,
 } from "react-native";
-import { colors } from "../../global/colors";
+import { colors } from "../../Global/colors";
 import { useEffect, useState } from "react";
 import { useSignupMutation } from "../../services/auth/authApi";
 import { useDispatch } from "react-redux";

@@ -6,7 +6,7 @@ import {
   Image,
   ActivityIndicator,
 } from "react-native";
-import { colors } from "../../global/colors";
+import { colors } from "../../Global/colors";
 import CameraIcon from "../../components/CameraIcon";
 import { useState, useEffect } from "react";
 import * as ImagePicker from "expo-image-picker";

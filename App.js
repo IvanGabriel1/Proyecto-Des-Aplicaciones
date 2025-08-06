@@ -6,10 +6,10 @@ import {
   View,
   useWindowDimensions,
 } from "react-native";
-import { loadFonts } from "./src/global/fonts";
+import { loadFonts } from "./src/Global/fonts";
 import { useEffect, useState } from "react";
-import { marginsHeader } from "./src/global/constants";
-import { colors } from "./src/global/colors";
+import { marginsHeader } from "./src/Global/constants";
+import { colors } from "./src/Global/colors";
 import { Provider } from "react-redux";
 import store from "./src/store";
 import MainNavigator from "./src/navigation/MainNavigator";

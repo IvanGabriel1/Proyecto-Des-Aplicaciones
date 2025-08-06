@@ -7,7 +7,7 @@ import {
   Dimensions,
   Switch,
 } from "react-native";
-import { colors } from "../../global/colors";
+import { colors } from "../../Global/colors";
 import { useEffect, useState } from "react";
 import { useLoginMutation } from "../../services/auth/authApi";
 import { setUser } from "../../features/user/userSlice";

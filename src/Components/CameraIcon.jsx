@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
-import { colors } from "../global/colors";
+import { colors } from "../Global/colors";
 
 const CameraIcon = () => {
   return (

@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { initSessionTable, getSession } from "../db";
 import { ActivityIndicator, View } from "react-native";
 import { setUser } from "../features/user/userSlice";
-import { colors } from "../global/colors";
+import { colors } from "../Global/colors";
 
 export default function MainNavigator() {
   const userEmail = useSelector((state) => state.userReducer.userEmail);

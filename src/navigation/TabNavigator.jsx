@@ -4,7 +4,7 @@ import CartStackNavigator from "./CartStackNavigator";
 import Navigator from "./Navigator";
 import { BlurView } from "expo-blur";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { colors } from "../global/colors";
+import { colors } from "../Global/colors";
 import ProfileStackNavigator from "./ProfileStackNavigator";
 
 const Tab = createBottomTabNavigator();

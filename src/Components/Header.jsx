@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
-import { colors } from "../global/colors";
-import { marginsHeader } from "../global/constants";
+import { colors } from "../Global/colors";
+import { marginsHeader } from "../Global/constants";
 import CategoriesMenu from "./CategoriesMenu";
 import { useNavigation } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/FontAwesome";
