@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
-import FlatListComponent from "../components/FlatListComponent";
+import FlatListComponent from "../Components/FlatListComponent";
 import { useSelector } from "react-redux";
 import { useGetProductsByCategoryQuery } from "../services/shop/shopApi";
 

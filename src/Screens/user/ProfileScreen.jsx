@@ -7,7 +7,7 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { colors } from "../../Global/colors";
-import CameraIcon from "../../components/CameraIcon";
+import CameraIcon from "../../Components/CameraIcon";
 import { useState, useEffect } from "react";
 import * as ImagePicker from "expo-image-picker";
 import { useSelector, useDispatch } from "react-redux";

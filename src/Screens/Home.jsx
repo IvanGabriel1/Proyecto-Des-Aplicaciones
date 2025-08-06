@@ -1,7 +1,7 @@
 import { View, StyleSheet, useWindowDimensions } from "react-native";
 //import products from "../data/products.json";
-import FlatListComponent from "../components/FlatListComponent";
-import Search from "../components/Search";
+import FlatListComponent from "../Components/FlatListComponent";
+import Search from "../Components/Search";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 

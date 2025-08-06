@@ -1,6 +1,6 @@
 import { StyleSheet, View, useWindowDimensions } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Header from "../components/Header";
+import Header from "../Components/Header";
 import CartScreen from "../Screens/cart/CartScreen";
 
 const CartStackNavigator = () => {

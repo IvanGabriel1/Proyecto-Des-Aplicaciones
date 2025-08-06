@@ -1,6 +1,6 @@
 //import ProfileScreen from "../screens/user/ProfileScreen";
 import ProfileScreen from "../Screens/user/ProfileScreen";
-import Header from "../components/Header";
+import Header from "../Components/Header";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Stack = createNativeStackNavigator();
