@@ -17,8 +17,7 @@ Es una aplicación móvil construida con **React Native** y **Expo**, enfocada e
 1. Clonar el repositorio:
 
    ```
-   https://github.com/IvanGabriel1/Proyecto-Des-Aplicaciones
-   cd equipment-for-home
+   https://github.com/IvanGabriel1/Proyecto-Des-Aplicaciones.git
    ```
 
 2. Instalar dependencias:
